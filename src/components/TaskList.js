@@ -1,9 +1,19 @@
 import React from "react";
+import { TASKS } from "../data"; // use the data modified in app.js not directly from data.js
+import Task from "./Task";
 
-function TaskList() {
+function TaskList({ tasks, onRemoveTask}) {
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {   tasks.map((TASK) => 
+        <Task 
+          key={TASK.text} 
+          text={TASK.text} 
+          category={TASK.category} 
+          onRemoveTask={onRemoveTask} 
+        />
+        )
+      }
     </div>
   );
 }
